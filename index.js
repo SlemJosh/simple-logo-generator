@@ -7,7 +7,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // We will also need to use our created functions
-const { Circle, Square, Triangle } = require(".lib/shapes");
+const { Circle, Square, Triangle } = require("./lib/shapes");
 
 // Prompts for User
 
@@ -46,9 +46,25 @@ function logoQuestions(){
         },
     ])
     .then ((data) =>{
-       
+        console.log("User Inputs:");
+        console.log("Text:", data.text);
+        console.log("Text Color:", data.textColor);
+        console.log("Selected Shape:", data.shape);
+        console.log("Shape Color:", data.shapeColor);
+       writeToFile("logo.svg", data);
     })
     .catch((error) => {
         console.log("Error:", error);
+    })
+}
+
+function writeToFile(fileName, data){
+    fs.writeFile(fileName, svgContent, (err) => {
+        if (err){
+            console.error("Error writing file:", err);
+        }
+        else {
+            console.log(`File ${fileName} has been succesfully created.`);
+        }
     })
 }
