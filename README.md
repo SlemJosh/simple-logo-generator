@@ -1,1 +1,1 @@
-# simple-logo-generator
+# svg-logo-generator
