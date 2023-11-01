@@ -41,7 +41,7 @@ function logoQuestions(){
         // Shape Color
         {
             type: "input",
-            message: "What color would you like your shape to be? (Enter color OR hexaddecimal value)"
+            message: "What color would you like your shape to be? (Enter color OR hexaddecimal value)",
             name: "shapeColor",
         },
     ])
