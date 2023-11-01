@@ -19,6 +19,12 @@ function logoQuestions(){
             type: "input",
             message: "What text do you want in your logo? (Enter up to three characters)",
             name: "text",
+            validate: function(input) {
+                if (input.length > 3) {
+                    return "Please enter up to three characters only.";
+                }
+                return true;
+            }
         },
         // Color of Text
         {
@@ -39,5 +45,10 @@ function logoQuestions(){
             message: "What color would you like your shape to be? (Enter color OR hexaddecimal value)",
         },
     ])
-    
+    .then ((data) =>{
+       
+    })
+    .catch((error) => {
+        console.log("Error:", error);
+    })
 }
