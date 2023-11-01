@@ -1,10 +1,9 @@
-// Import the npms we need
-
 // inquirer for adding prompts to the user to gather needed information
-const inquirer = require("inquirer");
+// VERY IMPORTANT npm i inquirer@8.2.4 Needs to be this version or it doesn't initiate.
+const inquirer = require('inquirer');
 
 // fs for creating files
-const fs = require("fs");
+const fs = require('fs');
 
 // We will also need to use our created functions
 const { Circle, Square, Triangle } = require("./lib/shapes");
@@ -51,6 +50,9 @@ function logoQuestions(){
         console.log("Text Color:", data.textColor);
         console.log("Selected Shape:", data.shape);
         console.log("Shape Color:", data.shapeColor);
+
+        let svgContent = generateSvg(data);
+
        writeToFile("logo.svg", data);
     })
     .catch((error) => {
@@ -58,7 +60,7 @@ function logoQuestions(){
     })
 }
 
-function writeToFile(fileName, data){
+function writeToFile(fileName, svgContent){
     fs.writeFile(fileName, svgContent, (err) => {
         if (err){
             console.error("Error writing file:", err);
@@ -68,3 +70,6 @@ function writeToFile(fileName, data){
         }
     })
 }
+
+
+logoQuestions();
