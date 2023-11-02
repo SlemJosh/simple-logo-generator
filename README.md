@@ -23,6 +23,11 @@ You will need node.  Once you have node, you will need to install the dependenan
 ![SVG Logo Generator Example](/assets/svgstringexample.png)
 ![SVG Logo Generator Example](/assets/svglogoexample.png)
 
+---
+[Video link of demonstration](https://drive.google.com/file/d/1SPrmQAqLghX2Gskcdk8WcE0-PuAoYoTe/view)
+---
+
+
 When you have all the required npms and node installed.  Simple navigate to your terminal and make sure you are at the location with the index.js file.  Then type node index.js to begin the process.
 
 ## License
