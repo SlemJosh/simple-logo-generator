@@ -30,13 +30,7 @@ function generateSvg(data) {
 function logoQuestions() {
   inquirer
     .prompt([
-      // Let the user name the file
-      {
-        type: "input",
-        message: "Enter a filename for your logo + .svg at the end. (make sure to end it with the proper extension. ex.  peteslogo = peteslogo.svg)",
-        name: "fileName",
-      },
-      
+
       // Text
       {
         type: "input",
@@ -96,7 +90,7 @@ function writeToFile(fileName, svgContent) {
   const svgString = svgContent; // Ensure svgContent is a string
 
 // Custom folder name for created logo
-const folderName = 'logo';
+const folderName = 'createdlogo';
 
 // path for the file
 const filePath = `${folderName}/${fileName}`;
