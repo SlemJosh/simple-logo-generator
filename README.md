@@ -38,7 +38,8 @@ This project is licensed under the MIT license. Click [here]([MIT License](https
 
 ## Contributing
 
-Various sources were used for finding some default string values for shapes.  Such as  https://www.w3.org/TR/SVG/shapes.html.  We also were provided a test code from the UoU coding bootcamp.
+Various sources were used for finding some default string values for shapes.  Such as  https://www.w3.org/TR/SVG/shapes.html.  
+We also were provided a test code from the UofU coding bootcamp.
 Also in order to validate color, we built a list of the top 100 colors from https://www.quackit.com/css/css_color_codes.cfm.
 Also we used a code to validate hex colors.  Provided by https://www.geeksforgeeks.org/how-to-validate-hexadecimal-color-code-using-regular-expression/
 
