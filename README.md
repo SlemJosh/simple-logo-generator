@@ -24,7 +24,9 @@ You will need node.  Once you have node, you will need to install the dependenan
 ![SVG Logo Generator Example](/assets/svglogoexample.png)
 
 ---
+
 [Video link of demonstration](https://drive.google.com/file/d/1SPrmQAqLghX2Gskcdk8WcE0-PuAoYoTe/view)
+
 ---
 
 
