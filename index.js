@@ -3,6 +3,25 @@
 const inquirer = require('inquirer'); // Inquirer for command-line prompts
 const fs = require('fs'); // File system module for file operations
 const { Circle, Square, Triangle } = require("./lib/shapes"); // Importing shapes module
+const allowedColors = [
+  "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond",
+  "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue",
+  "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGreen", "DarkKhaki",
+  "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue",
+  "DarkSlateGray", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DodgerBlue", "FireBrick",
+  "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Green", "GreenYellow",
+  "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon",
+  "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGreen", "LightPink", "LightSalmon",
+  "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen",
+  "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue",
+  "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin",
+  "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod",
+  "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue",
+  "Purple", "RebeccaPurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen",
+  "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "Snow", "SpringGreen", "SteelBlue",
+  "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
+];
+
 
 
 // Function to prompt user for logo creation
@@ -29,7 +48,16 @@ function logoQuestions() {
         type: "input",
         message: "What color would you like your text to be? (Enter color OR hexadecimal value)",
         name: "textColor",
-
+        // validation for color including the top 100 colors in word form
+        validate: function (input) {
+          const color = input.toLowerCase(); //Convert user input to lowercase
+          const isValidHexColor = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(input);
+          if (isValidHexColor || allowedColors.map(c => c.toLowerCase()).includes(color)) {
+            return true; // Input is a valid color
+          } else {
+            return "Please enter a valid color (color name or hexadecimal value).";
+          }
+        }
       },
 
       // Shape
@@ -45,6 +73,16 @@ function logoQuestions() {
         type: "input",
         message: "What color would you like your shape to be? (Enter color OR hexadecimal value)",
         name: "shapeColor",
+        // validation for color including the top 100 colors in word form
+        validate: function (input) {
+          const color = input.toLowerCase(); //Convert user input to lowercase
+          const isValidHexColor = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(input);
+          if (isValidHexColor || allowedColors.map(c => c.toLowerCase()).includes(color)) {
+            return true; // Input is a valid color
+          } else {
+            return "Please enter a valid color (color name or hexadecimal value).";
+          }
+        }
       },
     ])
     .then((data) => {
