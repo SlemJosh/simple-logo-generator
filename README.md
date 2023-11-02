@@ -19,6 +19,9 @@ This project was all about using user input to create a simple logo. We take 3 c
 You will need node.  Once you have node, you will need to install the dependenant npms.  Start with Inquirer.  In your terminal, npm i inquirer@8.2.4.   Then do FS with a simple npm i fs.  Lastly we will need to have jest for testing purposes.  npm install --save-dev jest
 
 ## Usage
+![SVG Logo Generator Example](/assets/svgterminalexample.png)
+![SVG Logo Generator Example](/assets/svgstringexample.png)
+![SVG Logo Generator Example](/assets/svglogoexample.png)
 
 When you have all the required npms and node installed.  Simple navigate to your terminal and make sure you are at the location with the index.js file.  Then type node index.js to begin the process.
 
