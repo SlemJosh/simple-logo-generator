@@ -30,11 +30,19 @@ function generateSvg(data) {
 function logoQuestions() {
   inquirer
     .prompt([
-      // Text, color, shape, and shape color prompts
+      // Let the user name the file
+      {
+        type: "input",
+        message: "Enter a filename for your logo + .svg at the end. (make sure to end it with the proper extension. ex.  peteslogo = peteslogo.svg)",
+        name: "fileName",
+      },
+      
+      // Text
       {
         type: "input",
         message: "What text do you want in your logo? (Enter up to three characters)",
         name: "text",
+        // Need to validate if it has 3 or more characters.
         validate: function(input) {
           if (input.length > 3) {
             return "Please enter up to three characters only.";
@@ -42,17 +50,23 @@ function logoQuestions() {
           return true;
         }
       },
+
+      // Text Color
       {
         type: "input",
         message: "What color would you like your text to be? (Enter color OR hexadecimal value)",
         name: "textColor",
       },
+
+      // Shape
       {
         type: "list",
         message: "What shape would you like to use for your logo?",
         choices: ["Circle", "Square", "Triangle"],
         name: "shape",
       },
+
+      // Shape Color
       {
         type: "input",
         message: "What color would you like your shape to be? (Enter color OR hexadecimal value)",
@@ -81,8 +95,14 @@ function logoQuestions() {
 function writeToFile(fileName, svgContent) {
   const svgString = svgContent; // Ensure svgContent is a string
 
+// Custom folder name for created logo
+const folderName = 'logo';
+
+// path for the file
+const filePath = `${folderName}/${fileName}`;
+
   // Write SVG content to the specified file
-  fs.writeFile(fileName, svgString, (err) => {
+  fs.writeFile(filePath, svgString, (err) => {
     if (err) {
       console.error("Error writing file:", err); // Log any errors during file writing
     } else {
