@@ -50,6 +50,7 @@ function logoQuestions() {
         type: "input",
         message: "What color would you like your text to be? (Enter color OR hexadecimal value)",
         name: "textColor",
+        
       },
 
       // Shape
@@ -68,7 +69,7 @@ function logoQuestions() {
       },
     ])
     .then((data) => {
-      // Display user inputs
+      // Display user inputs.  Just so we can verify in the console.
       console.log("User Inputs:");
       console.log("Text:", data.text);
       console.log("Text Color:", data.textColor);
@@ -81,13 +82,14 @@ function logoQuestions() {
       writeToFile("logo.svg", svgContent); // Write the SVG content to a file named 'logo.svg'
     })
     .catch((error) => {
-      console.log("Error:", error); // Log errors, if any
+      console.log("Error:", error); // Log errors
     });
 }
 
 // Function to write SVG content to a file
 function writeToFile(fileName, svgContent) {
-  const svgString = svgContent; // Ensure svgContent is a string
+// First we want to make sure that the data we got from the prompts gave us a valid string to work with
+  const svgString = svgContent; 
 
 // Custom folder name for created logo
 const folderName = 'createdlogo';
@@ -98,11 +100,11 @@ const filePath = `${folderName}/${fileName}`;
   // Write SVG content to the specified file
   fs.writeFile(filePath, svgString, (err) => {
     if (err) {
-      console.error("Error writing file:", err); // Log any errors during file writing
+      console.error("Error writing file:", err); // Log any errors 
     } else {
       console.log(`Generated ${fileName}`); // Log successful file generation
     }
   });
 }
 
-logoQuestions(); // Start logo creation process
+logoQuestions(); // Start the questions.
