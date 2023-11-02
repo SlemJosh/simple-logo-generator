@@ -106,7 +106,7 @@ function writeToFile(fileName, svgContent) {
     if (err) {
       console.error("Error writing file:", err); // Log any errors 
     } else {
-      console.log(`Generated ${fileName}`); // Log successful file generation
+      console.log(`Generated ${fileName} in the createdlogo folder. Enjoy!`); // Log successful file generation
     }
   });
 }
